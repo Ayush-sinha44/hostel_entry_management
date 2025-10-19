@@ -16,15 +16,31 @@ public class User {
     private String roomNo;
     private String hostelBlock;
 
+    // NEW FIELD: User Category
+    @Enumerated(EnumType.STRING)
+    private UserType userType; 
+
     // Constructors
     public User() {}
 
+    // Updated constructor with default role
     public User(String name, String rollNo, String email, String roomNo, String hostelBlock) {
         this.name = name;
         this.rollNo = rollNo;
         this.email = email;
         this.roomNo = roomNo;
         this.hostelBlock = hostelBlock;
+        this.userType = UserType.STUDENT; // Default role
+    }
+    
+    // New constructor to allow specifying the role
+    public User(String name, String rollNo, String email, String roomNo, String hostelBlock, UserType userType) {
+        this.name = name;
+        this.rollNo = rollNo;
+        this.email = email;
+        this.roomNo = roomNo;
+        this.hostelBlock = hostelBlock;
+        this.userType = userType;
     }
 
     // Getters and Setters
@@ -45,4 +61,8 @@ public class User {
 
     public String getHostelBlock() { return hostelBlock; }
     public void setHostelBlock(String hostelBlock) { this.hostelBlock = hostelBlock; }
+
+    // NEW Getter and Setter for UserType
+    public UserType getUserType() { return userType; }
+    public void setUserType(UserType userType) { this.userType = userType; }
 }
